@@ -1,5 +1,5 @@
 <main>
-    <div class="container mt-5 py-5">
+    <div class="container py-5">
         <div id="notfound">
             <div class="notfound">
                 <div class="notfound-404">

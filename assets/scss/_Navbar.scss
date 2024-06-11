@@ -1,0 +1,20 @@
+.sidebar {
+    height: 100vh !important;
+    max-width: 260px !important;
+    .nav-pills {
+
+        .nav-link {
+            &.active {
+                min-width: 230px !important;
+                min-height: 50px !important;
+                color: $blanco !important;
+                background-color: #FF1C37 !important;
+            }
+        }
+    
+    
+    }
+}
+
+
+

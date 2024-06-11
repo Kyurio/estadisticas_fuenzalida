@@ -4,42 +4,35 @@ include_once 'app/utils/helpers.php';
 
 $viewLoader = new ViewLoader();
 
-# Obtener la ruta desde la URL
 $request = $_SERVER['REQUEST_URI'];
-$valor = @array_pop(array_filter(explode('/', '.' . $request)));
+$request = strtok($request, '?');
+$exploded_request = explode('/', trim($request, '/'));
+$projectName = array_shift($exploded_request);
+$internalPath = implode('/', $exploded_request);
 
-# Si no hay ningún valor después del nombre del proyecto, asumir la ruta raíz
-if (empty($valor)) {
-    $valor = '/';
+
+if (empty($internalPath)) {
+    $internalPath = 'home';
 }
 
-#  invoca el header 
+# Invoca el header 
 require 'templates/header.php';
+require 'components/complements/preloader.php';
 
 # Enrutamiento simple
-switch ($valor) {
-
-    case 'fuenzalisa_wsp':
-
+switch ($internalPath) {
+    case '':
         $viewLoader->load('home');
         break;
 
     case 'home':
-
         $viewLoader->load('home');
         break;
 
-    case 'admin':
-
-        $viewLoader->load('admin');
-        break;
-
     default:
-
         $viewLoader->load('error');
         break;
 }
 
-
-#  invoca el footer 
+# Invoca el footer 
 require 'templates/footer.php';

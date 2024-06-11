@@ -8,7 +8,7 @@ class ViewLoader {
     public function load($viewName) {
 
         if($viewName == 'error') {
-            require 'templates/error/404.php';
+            require 'views/error/404.php';
 
         }else{
 
